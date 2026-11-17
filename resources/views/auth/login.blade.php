@@ -80,7 +80,7 @@
         <div class="mt-6 pt-5 border-t border-slate-800 text-center">
             <p class="text-xs text-slate-400">
                 Don't have an account? 
-                <a href="{{ route('register') }}" class="text-red-400 hover:text-red-300 font-semibold ml-1">Create one here &rarr;</a>
+                <a href="{{ route('register') }}" class="text-red-400 hover:text-red-300 font-semibold ml-1">Create one here</a>
             </p>
         </div>
     </div>

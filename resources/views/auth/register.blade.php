@@ -215,7 +215,7 @@
         <div class="mt-6 pt-5 border-t border-slate-800 text-center">
             <p class="text-xs text-slate-400">
                 Already registered with LifePulse? 
-                <a href="{{ route('login') }}" class="text-red-400 hover:text-red-300 font-semibold ml-1">Sign in here &rarr;</a>
+                <a href="{{ route('login') }}" class="text-red-400 hover:text-red-300 font-semibold ml-1">Sign in here</a>
             </p>
         </div>
     </div>

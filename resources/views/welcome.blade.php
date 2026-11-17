@@ -59,7 +59,7 @@
             <div class="flex items-center gap-3">
                 @auth
                     <a href="{{ route('dashboard') }}" class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold shadow-md shadow-red-600/30 transition">
-                        My Dashboard &rarr;
+                        My Dashboard
                     </a>
                 @else
                     <a href="{{ route('login') }}" class="text-slate-300 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition text-xs sm:text-sm font-semibold">
@@ -230,7 +230,6 @@
                     </div>
                     <a href="{{ route('register') }}" class="inline-flex items-center gap-2 text-xs font-bold text-red-400 hover:text-red-300 transition">
                         <span>Pledge Blood for a Patient</span>
-                        <span>&rarr;</span>
                     </a>
                 </div>
 
