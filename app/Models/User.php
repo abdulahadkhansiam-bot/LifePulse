@@ -88,4 +88,9 @@ class User extends Authenticatable
     {
         return $this->status === 'active';
     }
+
+    public function donorProfile(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(\App\Models\Member1_Rifaat\DonorProfile::class);
+    }
 }

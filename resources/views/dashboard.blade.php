@@ -41,10 +41,23 @@
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
             <span class="text-xs text-slate-400 font-medium block">Eligibility Status</span>
             <div class="mt-1 flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                <span class="text-base font-bold text-white">Eligible to Donate</span>
+                @if ($user->donorProfile && $user->donorProfile->is_eligible)
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    <span class="text-base font-bold text-emerald-400">Eligible to Donate</span>
+                @elseif ($user->donorProfile && $user->donorProfile->eligibility_status === 'temporarily_deferred')
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                    <span class="text-base font-bold text-amber-400">Deferred ({{ $user->donorProfile->daysRemaining() }}d)</span>
+                @elseif ($user->donorProfile && $user->donorProfile->eligibility_status === 'permanently_deferred')
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                    <span class="text-base font-bold text-red-400">Ineligible</span>
+                @else
+                    <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
+                    <span class="text-base font-bold text-slate-300">Pending Evaluation</span>
+                @endif
             </div>
-            <span class="text-[11px] text-emerald-400 mt-1 block">Ready for donation</span>
+            <a href="{{ route('donor.eligibility') }}" class="text-[11px] text-red-400 hover:text-red-300 mt-1 block font-semibold">
+                {{ $user->donorProfile ? 'Update Evaluation &rarr;' : 'Check Eligibility &rarr;' }}
+            </a>
         </div>
 
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
@@ -65,12 +78,14 @@
         </div>
 
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
-            <span class="text-xs text-slate-400 font-medium block">Nearby Requests</span>
+            <span class="text-xs text-slate-400 font-medium block">Stock & Expiry Alerts</span>
             <div class="mt-1 flex items-center gap-2">
-                <span class="text-xl font-extrabold text-amber-400">3</span>
-                <span class="text-xs text-slate-400">Active</span>
+                <span class="text-xl font-extrabold text-amber-400">R8</span>
+                <span class="text-xs text-slate-400">Active Engine</span>
             </div>
-            <span class="text-[11px] text-amber-400 mt-1 block">Within 10 km radius</span>
+            <a href="{{ route('inventory.alerts') }}" class="text-[11px] text-amber-400 hover:text-amber-300 mt-1 block font-semibold">
+                Open Stock Monitor &rarr;
+            </a>
         </div>
     </div>
 
@@ -81,14 +96,14 @@
                 <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-500/20 text-red-500 flex items-center justify-center font-bold mb-4">
                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                 </div>
-                <h3 class="text-base font-bold text-white mb-1">Schedule a Blood Donation</h3>
+                <h3 class="text-base font-bold text-white mb-1">Donor Health Evaluation (R1)</h3>
                 <p class="text-xs text-slate-400 leading-relaxed">
-                    Book an appointment slot at a certified hospital or blood bank center at your preferred date and time.
+                    Evaluate age, weight, donation intervals, and medical questionnaire to compute your official clinical eligibility.
                 </p>
             </div>
             <div class="mt-5">
-                <a href="#active-requests" class="inline-block w-full py-2.5 px-4 bg-red-600 hover:bg-red-500 text-white font-bold text-xs rounded-xl text-center shadow-md shadow-red-600/20 transition">
-                    Book Appointment
+                <a href="{{ route('donor.eligibility') }}" class="inline-block w-full py-2.5 px-4 bg-red-600 hover:bg-red-500 text-white font-bold text-xs rounded-xl text-center shadow-md shadow-red-600/20 transition">
+                    Run Evaluation Engine
                 </a>
             </div>
         </div>
@@ -98,14 +113,14 @@
                 <div class="w-10 h-10 rounded-xl bg-amber-600/10 border border-amber-500/20 text-amber-500 flex items-center justify-center font-bold mb-4">
                     <svg class="w-5 h-5 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                 </div>
-                <h3 class="text-base font-bold text-white mb-1">Post Emergency Need</h3>
+                <h3 class="text-base font-bold text-white mb-1">Stock & Expiry Alert System (R8)</h3>
                 <p class="text-xs text-slate-400 leading-relaxed">
-                    In urgent need of blood for a patient? Post emergency specifications to alert compatible voluntary donors immediately.
+                    Automated daily scan for units nearing expiry (&le; 48h platelets, &le; 7d whole blood) and low-stock thresholds.
                 </p>
             </div>
             <div class="mt-5">
-                <a href="#active-requests" class="inline-block w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl text-center border border-slate-700 transition">
-                    Create Urgent Request
+                <a href="{{ route('inventory.alerts') }}" class="inline-block w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl text-center border border-slate-700 transition">
+                    View Stock Alerts
                 </a>
             </div>
         </div>
