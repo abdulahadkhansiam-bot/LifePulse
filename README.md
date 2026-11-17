@@ -15,12 +15,18 @@ A web-based centralized healthcare coordination platform designed to bridge the 
 - **Section:** 12
 - **Faculty:** SOSB
 
-| Student ID | Student Name | Role / Domain Responsibility | Assigned Features (SRS) |
-|---|---|---|---|
-| **23301320** | **Rifaat Nuha** | **Donor Experience, Eligibility & Retention** | **F-01, F-02, F-09, F-12, F-13** |
-| 23101011 | Md Abdul Ahad Khan Siam | Emergency Coordination & Donor Matching | F-03, F-04, F-05, F-06, F-15 |
-| 22299053 | Mashud Hasan | Blood Bank Operations & Clinical Safety | F-07, F-08, F-10, F-11, F-20 |
-| 23201674 | Reehay Sabah Samama | Governance, Security, Analytics & KYC | F-14, F-16, F-17, F-18, F-19 |
+| Team Member | Student ID | Student Name | Role / Domain Responsibility | Assigned Features (SRS) |
+|---|---|---|---|---|
+| **Member 1** | 23101011 | Md Abdul Ahad Khan Siam | Emergency Coordination & Donor Matching | F-03, F-04, F-05, F-06, F-15 |
+| **Member 2** | **23301320** | **Rifaat Nuha** | **Donor Experience, Health Evaluation & Automated Alerts** | **R1 (Donor Health Evaluation), R8 (Automated Expiry Checks)**, F-02, F-09, F-12, F-13 |
+| **Member 3** | 23201674 | Reehay Sabah Samama | Governance, Security, Analytics & KYC | F-14, F-16, F-17, F-18, F-19 |
+| **Member 4** | 22299053 | Mashud Hasan | Blood Bank Operations & Clinical Safety | F-07, F-08, F-10, F-11, F-20 |
+
+### 📌 Assigned Feature Division by Member
+- **Member 1 is Abdul Ahad (Md Abdul Ahad Khan Siam - 23101011):** Emergency Coordination & Donor Matching (F-03, F-04, F-05, F-06, F-15)
+- **Member 2 is Nuha (Rifaat Nuha - 23301320):** Donor Health Evaluation & Automated Expiry Alerts (R1, R8, F-02, F-09, F-12, F-13)
+- **Member 3 is Reehay (Reehay Sabah Samama - 23201674):** Governance, Security, Analytics & KYC (F-14, F-16, F-17, F-18, F-19)
+- **Member 4 is Mashud (Mashud Hasan - 22299053):** Blood Bank Operations & Clinical Safety (F-07, F-08, F-10, F-11, F-20)
 
 ---
 
