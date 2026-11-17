@@ -83,19 +83,6 @@
                 <a href="{{ route('register') }}" class="text-red-400 hover:text-red-300 font-semibold ml-1">Create one here &rarr;</a>
             </p>
         </div>
-
-        <!-- Testing / Demo Helper for Viva Assessment -->
-        <details class="mt-4 pt-3 border-t border-slate-800/60 text-xs">
-            <summary class="cursor-pointer text-slate-500 hover:text-slate-300 font-medium select-none text-center">
-                &bull; Quick Testing Credentials (Click to view)
-            </summary>
-            <div class="mt-2.5 p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-[11px] text-slate-400 space-y-1.5 font-mono">
-                <div><span class="text-red-400 font-bold">Donor:</span> rifaat@lifepulse.org / Password123!</div>
-                <div><span class="text-red-400 font-bold">Requester:</span> siam@lifepulse.org / Password123!</div>
-                <div><span class="text-red-400 font-bold">Hospital:</span> mashud@lifepulse.org / Password123!</div>
-                <div><span class="text-red-400 font-bold">Admin:</span> reehay@lifepulse.org / Password123!</div>
-            </div>
-        </details>
     </div>
 </div>
 @endsection

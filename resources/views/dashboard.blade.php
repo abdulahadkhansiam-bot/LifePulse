@@ -1,24 +1,24 @@
-@extends('layouts.app', ['title' => 'Dashboard - LifePulse'])
+@extends('layouts.app', ['title' => 'Dashboard - LifePulse Blood Network'])
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-    <!-- Welcome Header Banner -->
-    <div class="bg-gradient-to-r from-red-950/60 via-slate-900 to-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl">
+    <!-- User Welcome Banner -->
+    <div class="bg-gradient-to-r from-red-950/70 via-slate-900 to-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl">
         <div class="flex items-center gap-4">
             <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-400 text-white font-extrabold text-2xl flex items-center justify-center shadow-lg shadow-red-600/30 shrink-0">
                 {{ strtoupper(substr($user->name, 0, 1)) }}
             </div>
             <div>
                 <div class="flex items-center gap-2">
-                    <h1 class="text-2xl font-bold text-white tracking-tight">Welcome, {{ $user->name }}!</h1>
+                    <h1 class="text-2xl font-bold text-white tracking-tight">Welcome back, {{ $user->name }}</h1>
                     <span class="px-2.5 py-0.5 rounded-full bg-red-600/20 border border-red-500/30 text-red-400 font-bold uppercase text-[10px]">
-                        {{ $user->role }}
+                        {{ ucfirst($user->role) }}
                     </span>
                 </div>
                 <p class="text-xs text-slate-400 mt-1">
-                    Logged in as <span class="text-slate-300 font-medium">{{ $user->email }}</span> &bull; 
+                    {{ $user->email }} &bull; 
                     Blood Group: <span class="text-red-400 font-bold">{{ $user->blood_group ?? 'Not set' }}</span> &bull;
-                    City: <span class="text-slate-300">{{ $user->city ?? 'Not set' }}</span>
+                    Location: <span class="text-slate-300 font-medium">{{ $user->city ?? 'Not set' }}</span>
                 </p>
             </div>
         </div>
@@ -36,157 +36,163 @@
         </div>
     </div>
 
-    <!-- System Architecture Status -->
-    <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-            <div>
-                <h2 class="text-base font-bold text-white">Base Foundation & Skeleton Status</h2>
-                <p class="text-xs text-slate-400">Core authentication, session security, and folder boundaries are ready.</p>
+    <!-- Overview Metric Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+            <span class="text-xs text-slate-400 font-medium block">Eligibility Status</span>
+            <div class="mt-1 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="text-base font-bold text-white">Eligible to Donate</span>
             </div>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
-                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                Skeleton Operational
-            </span>
+            <span class="text-[11px] text-emerald-400 mt-1 block">Ready for donation</span>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800">
-                <span class="text-slate-400 block font-medium">Authentication</span>
-                <span class="text-sm font-bold text-emerald-400 mt-0.5 block">Active</span>
-                <span class="text-[11px] text-slate-500">Bcrypt + Throttling</span>
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+            <span class="text-xs text-slate-400 font-medium block">Your Blood Group</span>
+            <div class="mt-1 flex items-center gap-2">
+                <span class="text-xl font-extrabold text-red-500">{{ $user->blood_group ?? 'N/A' }}</span>
             </div>
-            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800">
-                <span class="text-slate-400 block font-medium">Session Handling</span>
-                <span class="text-sm font-bold text-emerald-400 mt-0.5 block">Protected</span>
-                <span class="text-[11px] text-slate-500">CSRF & Fixation Safe</span>
+            <span class="text-[11px] text-slate-400 mt-1 block">Verified on profile</span>
+        </div>
+
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+            <span class="text-xs text-slate-400 font-medium block">Total Donations</span>
+            <div class="mt-1 flex items-center gap-2">
+                <span class="text-xl font-extrabold text-white">0</span>
+                <span class="text-xs text-slate-400">Pledges</span>
             </div>
-            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800">
-                <span class="text-slate-400 block font-medium">Database</span>
-                <span class="text-sm font-bold text-emerald-400 mt-0.5 block">MySQL</span>
-                <span class="text-[11px] text-slate-500">lifepulse (Migrated)</span>
+            <span class="text-[11px] text-slate-400 mt-1 block">Pledge to start saving lives</span>
+        </div>
+
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+            <span class="text-xs text-slate-400 font-medium block">Nearby Requests</span>
+            <div class="mt-1 flex items-center gap-2">
+                <span class="text-xl font-extrabold text-amber-400">3</span>
+                <span class="text-xs text-slate-400">Active</span>
             </div>
-            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800">
-                <span class="text-slate-400 block font-medium">Feature Scope</span>
-                <span class="text-sm font-bold text-blue-400 mt-0.5 block">Ready to Build</span>
-                <span class="text-[11px] text-slate-500">Folders partitioned</span>
+            <span class="text-[11px] text-amber-400 mt-1 block">Within 10 km radius</span>
+        </div>
+    </div>
+
+    <!-- Quick Action Hub -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+                <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-500/20 text-red-500 flex items-center justify-center font-bold mb-4">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <h3 class="text-base font-bold text-white mb-1">Schedule a Blood Donation</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Book an appointment slot at a certified hospital or blood bank center at your preferred date and time.
+                </p>
+            </div>
+            <div class="mt-5">
+                <a href="#active-requests" class="inline-block w-full py-2.5 px-4 bg-red-600 hover:bg-red-500 text-white font-bold text-xs rounded-xl text-center shadow-md shadow-red-600/20 transition">
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+                <div class="w-10 h-10 rounded-xl bg-amber-600/10 border border-amber-500/20 text-amber-500 flex items-center justify-center font-bold mb-4">
+                    <svg class="w-5 h-5 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <h3 class="text-base font-bold text-white mb-1">Post Emergency Need</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    In urgent need of blood for a patient? Post emergency specifications to alert compatible voluntary donors immediately.
+                </p>
+            </div>
+            <div class="mt-5">
+                <a href="#active-requests" class="inline-block w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl text-center border border-slate-700 transition">
+                    Create Urgent Request
+                </a>
+            </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+                <div class="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-500 flex items-center justify-center font-bold mb-4">
+                    <svg class="w-5 h-5 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <h3 class="text-base font-bold text-white mb-1">Upcoming Donation Drives</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    View and register for local community blood donation camps organized in partnership with regional hospitals.
+                </p>
+            </div>
+            <div class="mt-5">
+                <a href="{{ route('home') }}#camps" class="inline-block w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl text-center border border-slate-700 transition">
+                    View Donation Camps
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Member Code Partitions Grid -->
-    <div>
-        <div class="mb-4">
-            <h2 class="text-lg font-bold text-white tracking-tight">Dedicated Member Workspace Partitions</h2>
-            <p class="text-xs text-slate-400">Each member develops exclusively within their designated MVC directories to avoid conflicts.</p>
+    <!-- Active Emergency Blood Requests Feed -->
+    <div id="active-requests" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-5">
+            <div>
+                <h2 class="text-base font-bold text-white">Live Regional Blood Requests</h2>
+                <p class="text-xs text-slate-400">Patients and hospitals in your region requiring voluntary donors right now.</p>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 text-xs font-bold border border-red-500/20">
+                Live Feed
+            </span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Member 1: Rifaat Nuha -->
-            <div class="bg-slate-900 border-2 border-red-500/40 rounded-2xl p-6 relative">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-xs font-bold text-red-400 tracking-wider">MEMBER 1 &bull; 23301320</span>
-                    <span class="px-2 py-0.5 bg-red-600 text-white text-[10px] font-bold rounded-full">Your Assigned Domain</span>
-                </div>
-                <h3 class="text-base font-bold text-white">Rifaat Nuha</h3>
-                <p class="text-xs text-slate-400 mb-4 font-medium">Donor Experience, Eligibility & Retention</p>
-
-                <div class="space-y-2 text-xs text-slate-300 mb-4">
-                    <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800 font-mono text-[11px]">
-                        <span class="text-slate-400">Controllers:</span> app/Http/Controllers/Member1_Rifaat/<br>
-                        <span class="text-slate-400">Models:</span> app/Models/Member1_Rifaat/<br>
-                        <span class="text-slate-400">Views:</span> resources/views/member1_rifaat/
+        <div class="space-y-3">
+            <div class="p-4 rounded-xl bg-slate-950/80 border border-red-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-red-600/20 text-red-500 font-extrabold text-xl flex items-center justify-center shrink-0 border border-red-500/30">
+                        O-
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-sm font-bold text-white">Emergency Surgery Patient</h3>
+                            <span class="px-2 py-0.5 rounded bg-red-600 text-white text-[10px] font-bold uppercase">SOS Critical</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-0.5">Dhaka Medical College Hospital &bull; 2 Bags Whole Blood &bull; Needed within 3 hours</p>
                     </div>
                 </div>
-
-                <div class="text-xs font-semibold text-slate-400 mb-2">Assigned Features:</div>
-                <ul class="text-xs space-y-1.5 text-slate-300">
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400"></span><span class="font-bold text-red-400">F-01:</span> Donor Eligibility Engine (Interval & Medical Rules)</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400"></span><span class="font-bold text-red-400">F-02:</span> Digital Donor Card (PDF & Dynamic QR)</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400"></span><span class="font-bold text-red-400">F-09:</span> Appointment Scheduling (Slot Concurrency)</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400"></span><span class="font-bold text-red-400">F-12:</span> Reminder Scheduler Daemon (Cron Jobs)</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400"></span><span class="font-bold text-red-400">F-13:</span> Donor Reliability Scoring Algorithm</li>
-                </ul>
+                <button type="button" class="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-bold rounded-lg shadow-sm transition shrink-0">
+                    Pledge Blood
+                </button>
             </div>
 
-            <!-- Member 2: Siam -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-xs font-bold text-slate-400 tracking-wider">MEMBER 2 &bull; 23101011</span>
-                    <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-[10px] font-bold rounded-full">Siam</span>
-                </div>
-                <h3 class="text-base font-bold text-white">Md Abdul Ahad Khan Siam</h3>
-                <p class="text-xs text-slate-400 mb-4 font-medium">Emergency Coordination & Spatial Matching</p>
-
-                <div class="space-y-2 text-xs text-slate-300 mb-4">
-                    <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800 font-mono text-[11px]">
-                        <span class="text-slate-400">Controllers:</span> app/Http/Controllers/Member2_Siam/<br>
-                        <span class="text-slate-400">Models:</span> app/Models/Member2_Siam/<br>
-                        <span class="text-slate-400">Views:</span> resources/views/member2_siam/
+            <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-slate-800 text-white font-extrabold text-xl flex items-center justify-center shrink-0 border border-slate-700">
+                        B+
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-sm font-bold text-white">Thalassemia Care Patient</h3>
+                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 text-[10px] font-bold uppercase">Urgent</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-0.5">National Institute of Diseases &bull; 1 Bag PRBC &bull; Needed within 12 hours</p>
                     </div>
                 </div>
-
-                <div class="text-xs font-semibold text-slate-400 mb-2">Assigned Features:</div>
-                <ul class="text-xs space-y-1.5 text-slate-400">
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-03:</span> Blood Request Lifecycle & States</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-04:</span> Biological ABO/Rh Compatibility Engine</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-05:</span> Outreach & Escalation Queues</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-06:</span> Emergency (SOS) Broadcast Dispatch</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-15:</span> Custom Haversine Distance Calculation</li>
-                </ul>
+                <button type="button" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-lg border border-slate-700 transition shrink-0">
+                    Pledge Blood
+                </button>
             </div>
 
-            <!-- Member 3: Mashud -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-xs font-bold text-slate-400 tracking-wider">MEMBER 3 &bull; 22299053</span>
-                    <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-[10px] font-bold rounded-full">Mashud</span>
-                </div>
-                <h3 class="text-base font-bold text-white">Mashud Hasan</h3>
-                <p class="text-xs text-slate-400 mb-4 font-medium">Blood Bank Operations & Clinical Safety</p>
-
-                <div class="space-y-2 text-xs text-slate-300 mb-4">
-                    <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800 font-mono text-[11px]">
-                        <span class="text-slate-400">Controllers:</span> app/Http/Controllers/Member3_Mashud/<br>
-                        <span class="text-slate-400">Models:</span> app/Models/Member3_Mashud/<br>
-                        <span class="text-slate-400">Views:</span> resources/views/member3_mashud/
+            <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-slate-800 text-white font-extrabold text-xl flex items-center justify-center shrink-0 border border-slate-700">
+                        A+
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-sm font-bold text-white">Dengue Critical Patient</h3>
+                            <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase">Platelets</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-0.5">Kurmitola General Hospital &bull; 4 Units Platelets &bull; Needed today</p>
                     </div>
                 </div>
-
-                <div class="text-xs font-semibold text-slate-400 mb-2">Assigned Features:</div>
-                <ul class="text-xs space-y-1.5 text-slate-400">
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-07:</span> FEFO Blood Inventory Engine</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-08:</span> Expiry & Low-Stock Automated Alerts</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-10:</span> Donor Vitals Screening & Deferral</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-11:</span> Blood Allocation & OTP Verification</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-20:</span> Camp Coordination & Volunteer Sync</li>
-                </ul>
-            </div>
-
-            <!-- Member 4: Reehay -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-xs font-bold text-slate-400 tracking-wider">MEMBER 4 &bull; 23201674</span>
-                    <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-[10px] font-bold rounded-full">Reehay</span>
-                </div>
-                <h3 class="text-base font-bold text-white">Reehay Sabah Samama</h3>
-                <p class="text-xs text-slate-400 mb-4 font-medium">Governance, Security, Analytics & KYC</p>
-
-                <div class="space-y-2 text-xs text-slate-300 mb-4">
-                    <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800 font-mono text-[11px]">
-                        <span class="text-slate-400">Controllers:</span> app/Http/Controllers/Member4_Reehay/<br>
-                        <span class="text-slate-400">Models:</span> app/Models/Member4_Reehay/<br>
-                        <span class="text-slate-400">Views:</span> resources/views/member4_reehay/
-                    </div>
-                </div>
-
-                <div class="text-xs font-semibold text-slate-400 mb-2">Assigned Features:</div>
-                <ul class="text-xs space-y-1.5 text-slate-400">
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-14:</span> Abuse & Duplicate Request Engine</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-16:</span> Operational Analytics & Real-Time Charts</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-17:</span> Multi-Channel Notification Center</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-18:</span> Immutable Audit Trail & PDF/CSV Export</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span><span class="font-semibold text-slate-300">F-19:</span> Hospital KYC Document Verification</li>
-                </ul>
+                <button type="button" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-lg border border-slate-700 transition shrink-0">
+                    Pledge Blood
+                </button>
             </div>
         </div>
     </div>

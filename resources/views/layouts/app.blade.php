@@ -14,14 +14,14 @@
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
-    <!-- Top System Context Banner -->
+    <!-- Top Emergency Help Banner -->
     <div class="bg-gradient-to-r from-red-950 via-slate-900 to-red-950 border-b border-red-900/40 text-xs px-4 py-1.5">
         <div class="max-w-7xl mx-auto flex items-center justify-between text-slate-400">
             <span class="flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span class="text-slate-300 font-medium">CSE470 Software Engineering &bull; Section 12 &bull; Faculty: SOSB</span>
+                <span class="text-slate-300 font-medium">LifePulse Emergency Blood Coordination Network &bull; 24/7 Active Hotline: <strong>10678</strong></span>
             </span>
-            <span class="text-[11px] hidden sm:inline text-rose-300/80">System Skeleton & MVC Base Baseline</span>
+            <span class="text-[11px] hidden sm:inline text-rose-300/90">Every Drop Saves Lives</span>
         </div>
     </div>
 
@@ -128,8 +128,8 @@
     <!-- Global Footer -->
     <footer class="border-t border-slate-800/80 bg-slate-900/60 py-6 text-center text-xs text-slate-500 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-1">
-            <p><strong>LifePulse &copy; 2026</strong> &bull; Model-View-Controller (MVC) Architecture</p>
-            <p class="text-slate-600">CSE470 Software Engineering Project &bull; Individual Viva Assessed Architecture</p>
+            <p><strong>LifePulse &copy; 2026</strong> &bull; Voluntary Blood Donation & Emergency Matching Platform</p>
+            <p class="text-slate-600">Dedicated to eliminating blood shortages and connecting donors directly with clinical facilities.</p>
         </div>
     </footer>
 </body>
