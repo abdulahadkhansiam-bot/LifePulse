@@ -49,6 +49,12 @@
                         <a href="{{ route('inventory.alerts') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('inventory.alerts*') ? 'bg-red-600/10 text-red-400 font-semibold border border-red-500/20' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} transition">
                             Stock & Expiry Alerts
                         </a>
+                        <a href="{{ route('blood.requests') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('blood.requests*') ? 'bg-red-600/10 text-red-400 font-semibold border border-red-500/20' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} transition">
+                            Blood Requests
+                        </a>
+                        <a href="{{ route('emergency.broadcast') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('emergency.*') ? 'bg-red-600/10 text-red-400 font-semibold border border-red-500/20' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} transition">
+                            🚨 Emergency
+                        </a>
                         <a href="{{ route('profile.edit') }}" class="px-3 py-1.5 rounded-lg {{ request()->routeIs('profile.*') ? 'bg-red-600/10 text-red-400 font-semibold border border-red-500/20' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} transition">
                             Profile
                         </a>

@@ -17,3 +17,13 @@ Schedule::command('blood:check-alerts --threshold=5')
     ->dailyAt('00:00')
     ->withoutOverlapping()
     ->runInBackground();
+
+/*
+|--------------------------------------------------------------------------
+| Scheduled Console Tasks (Feature R4 & R5: Request Expiry & Emergency Escalation)
+|--------------------------------------------------------------------------
+*/
+Schedule::command('blood:process-requests')
+    ->everyTenMinutes()
+    ->withoutOverlapping()
+    ->runInBackground();
