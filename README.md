@@ -17,16 +17,40 @@ A web-based centralized healthcare coordination platform designed to bridge the 
 
 | Team Member | Student ID | Student Name | Role / Domain Responsibility | Assigned Features (SRS) |
 |---|---|---|---|---|
-| **Member 1** | 23101011 | Md Abdul Ahad Khan Siam | Emergency Coordination & Donor Matching | F-03, F-04, F-05, F-06, F-15 |
-| **Member 2** | **23301320** | **Rifaat Nuha** | **Donor Experience, Health Evaluation & Automated Alerts** | **R1 (Donor Health Evaluation), R8 (Automated Expiry Checks)**, F-02, F-09, F-12, F-13 |
-| **Member 3** | 23201674 | Reehay Sabah Samama | Governance, Security, Analytics & KYC | F-14, F-16, F-17, F-18, F-19 |
-| **Member 4** | 22299053 | Mashud Hasan | Blood Bank Operations & Clinical Safety | F-07, F-08, F-10, F-11, F-20 |
+| **Member 1** | 23101011 | Md Abdul Ahad Khan Siam | Compatibility, Inventory & Appointment Services | R4, R7, R9, R18, R12 |
+| **Member 2** | **23301320** | **Rifaat Nuha** | **Donor Experience, Outreach & Automated Alerts** | **R1, R8, R5, R15, R17** |
+| **Member 3** | 23201674 | Reehay Sabah Samama | Emergency Escalation, Verification & Analytics | R6, R2, R19, R13, R3 |
+| **Member 4** | 22299053 | Mashud Hasan | Blood Allocation, Clinical Screening & Safety | R11, R20, R14, R16, R10 |
 
 ### 📌 Assigned Feature Division by Member
-- **Member 1 is Abdul Ahad (Md Abdul Ahad Khan Siam - 23101011):** Emergency Coordination & Donor Matching (F-03, F-04, F-05, F-06, F-15)
-- **Member 2 is Nuha (Rifaat Nuha - 23301320):** Donor Health Evaluation & Automated Expiry Alerts (R1, R8, F-02, F-09, F-12, F-13)
-- **Member 3 is Reehay (Reehay Sabah Samama - 23201674):** Governance, Security, Analytics & KYC (F-14, F-16, F-17, F-18, F-19)
-- **Member 4 is Mashud (Mashud Hasan - 22299053):** Blood Bank Operations & Clinical Safety (F-07, F-08, F-10, F-11, F-20)
+
+#### Member 1 — Md Abdul Ahad Khan Siam (23101011)
+- **R4:** Biological Compatibility Match *(Hard, Sprint 2)*
+- **R7:** Inventory Stock Management *(Medium-Hard, Sprint 1)*
+- **R9:** Appointment Booking *(Medium, Sprint 2)*
+- **R18:** Regulatory Action Auditing *(Medium, Sprint 4)*
+- **R12:** Cooldown Reminders *(Easy, Sprint 3)*
+
+#### Member 2 — Rifaat Nuha (23301320)
+- **R5:** Batch Outreach Management *(Hard, Sprint 3)*
+- **R15:** Coordinate Proximity Search *(Medium-Hard, Sprint 2)*
+- **R8:** Automated Expiry Checks *(Medium, Sprint 3)*
+- **R17:** User Notification Center *(Medium, Sprint 4)*
+- **R1:** Donor Health Evaluation *(Easy, Sprint 1)*
+
+#### Member 3 — Reehay Sabah Samama (23201674)
+- **R6:** Emergency Escalation *(Hard, Sprint 3)*
+- **R2:** Milestone & Card Generation *(Medium-Hard, Sprint 4)*
+- **R19:** Institutional Verification *(Medium, Sprint 2)*
+- **R13:** Donor Reliability Score *(Medium, Sprint 4)*
+- **R3:** Blood Request Tracking *(Easy, Sprint 1)*
+
+#### Member 4 — Mashud Hasan (22299053)
+- **R11:** Blood Unit Allocation *(Hard, Sprint 3)*
+- **R20:** Community Event Sourcing *(Medium-Hard, Sprint 3)*
+- **R14:** Spam and Fraud Prevention *(Medium, Sprint 4)*
+- **R16:** Performance Analytics *(Medium, Sprint 4)*
+- **R10:** Clinical Donor Screening *(Easy, Sprint 2)*
 
 ---
 
