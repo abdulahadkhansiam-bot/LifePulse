@@ -8,12 +8,9 @@ class StoreScreeningRequest extends FormRequest
 {
     public function authorize(): bool
     {
-    public function authorize(): bool
-    {
         $user = $this->user();
 
         return $user && ($user->isHospital() || $user->isAdmin());
-    }
     }
 
     public function rules(): array
@@ -21,7 +18,7 @@ class StoreScreeningRequest extends FormRequest
         $b = config('screening.input_bounds');
 
         return [
-            'donor_id'        => ['required', 'exists:users,id'],
+            'donor_id'        => ['required', 'exists:donor_profiles,user_id'],
             'appointment_id'  => ['nullable', 'integer'],
             'weight_kg'       => ['required', 'numeric', 'between:' . $b['weight_kg'][0] . ',' . $b['weight_kg'][1]],
             'systolic'        => ['required', 'integer', 'between:' . $b['systolic'][0] . ',' . $b['systolic'][1]],
