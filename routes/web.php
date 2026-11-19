@@ -10,7 +10,7 @@ use App\Http\Controllers\Member1_Rifaat\EligibilityController;
 use App\Http\Controllers\Member4_Reehay\BloodRequestController;
 use App\Http\Controllers\Member4_Reehay\SOSController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Member3_Mashud\ScreeningController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,4 +62,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/emergency/{id}/escalate', [SOSController::class, 'escalate'])->name('emergency.escalate');
     Route::post('/emergency/{id}/deactivate', [SOSController::class, 'deactivate'])->name('emergency.deactivate');
     Route::post('/emergency/create-sos', [SOSController::class, 'createSOS'])->name('emergency.create-sos');
+    
+    // Feature R10: Pre-Donation Screening (Member3_Mashud)
+    Route::get('/screening', [ScreeningController::class, 'create'])->name('screening.create');
+    Route::post('/screening', [ScreeningController::class, 'store'])->name('screening.store');
 });
